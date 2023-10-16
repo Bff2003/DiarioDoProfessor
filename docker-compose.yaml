@@ -1,0 +1,33 @@
+version: '3'
+services:
+  app:
+    container_name: node-api
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: prod # NODE_ENV: dev | prod | test
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=yourpassword
+      - MYSQL_DATABASE=yourdatabase
+      - MYSQL_USER=youruser
+      - MYSQL_PASSWORD=yourpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
+
