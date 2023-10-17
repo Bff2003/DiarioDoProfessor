@@ -26,12 +26,12 @@ CREATE TABLE disciplina (
     professor_responsavel TEXT
 );
 
--- Cria a tabela disciplina_alunos (relacionamento muitos-para-muitos)
-CREATE TABLE disciplina_alunos (
-    id_disciplina_aluno INT AUTO_INCREMENT PRIMARY KEY,
-    id_aluno INT NOT NULL,
+-- Cria a tabela disciplina_turma (relacionamento muitos-para-muitos)
+CREATE TABLE disciplina_turma (
+    id_disciplina_turma INT AUTO_INCREMENT PRIMARY KEY,
+    id_turma INT NOT NULL,
     id_disciplina INT NOT NULL,
-    FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno),
+    FOREIGN KEY (id_turma) REFERENCES turma(id_turma),
     FOREIGN KEY (id_disciplina) REFERENCES disciplina(id_disciplina)
 );
 

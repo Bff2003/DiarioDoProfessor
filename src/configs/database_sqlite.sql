@@ -27,11 +27,11 @@ CREATE TABLE disciplina (
 );
 
 -- Cria a tabela disciplina_alunos (relacionamento muitos-para-muitos)
-CREATE TABLE disciplina_alunos (
-    id_disciplina_aluno INTEGER PRIMARY KEY,
-    id_aluno INTEGER NOT NULL,
+CREATE TABLE disciplina_turma (
+    id_disciplina_turma INTEGER PRIMARY KEY,
+    id_turma INTEGER NOT NULL,
     id_disciplina INTEGER NOT NULL,
-    FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno),
+    FOREIGN KEY (id_turma) REFERENCES turma(id_turma),
     FOREIGN KEY (id_disciplina) REFERENCES disciplina(id_disciplina)
 );
 
