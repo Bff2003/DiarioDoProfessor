@@ -5,7 +5,8 @@ This API is a RESTful API built with Node.js, Express and MySQL.
 This API has the objective to manage all classes of a teacher. It will be possible to manage students, classes, subjects, times and records. And in the end of the year, the teacher will be able to generate a report with all the information of the students.
 
 ## Database
-### Relational Schema
+### Entity Relationship
+#### Phrases
 
 ```
 Relações entre as entidades:
@@ -20,6 +21,9 @@ Relações entre as entidades:
 - Um tempo tem vários registos (tempo 1:N registos)
 - Um registo pertence a um tempo (registo N:1 tempo)
 ```
+
+#### Diagram
+![Entity Relationship Diagram](docs/images/ER.png)
 
 ## Endpoints (To Implement)
 ### Alunos

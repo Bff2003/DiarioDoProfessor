@@ -1,0 +1,59 @@
+@startuml
+entity Turma {
+  +id_turma INTEGER
+  --
+  nome TEXT
+}
+
+entity Aluno {
+  +id_aluno INTEGER
+  --
+  nome TEXT
+  data_nascimento DATE
+  genero TEXT
+  endereco TEXT
+  numero_contato TEXT
+  email TEXT
+}
+
+entity Disciplina {
+  +id_disciplina INTEGER
+  --
+  nome TEXT
+  descricao TEXT
+  carga_horaria INTEGER
+  professor_responsavel TEXT
+}
+
+entity Disciplina_Turma {
+  +id_disciplina_turma INTEGER
+  --
+  id_turma INTEGER
+  id_disciplina INTEGER
+}
+
+entity Tempos {
+  +id_tempo INTEGER
+  --
+  id_disciplina INTEGER
+  data_hora_aula DATETIME
+}
+
+entity Registos {
+  +id_registo INTEGER
+  --
+  id_aluno INTEGER
+  id_tempo INTEGER
+  assiduidade INTEGER
+  comportamento INTEGER
+  notas DECIMAL(5, 2)
+  observacoes TEXT
+}
+
+Turma --|{ Aluno : "Possui"
+Turma --|{ Disciplina_Turma : "Oferece"
+Aluno --|{ Registos : "Registra"
+Disciplina --|{ Disciplina_Turma : "Tem"
+Disciplina --|{ Tempos : "Possui"
+Tempos --|{ Registos : "Registra"
+@enduml
